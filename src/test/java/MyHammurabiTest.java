@@ -1,12 +1,11 @@
-import static org.junit.Assert.*;
-
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class HammurabiTest {
+import static org.junit.Assert.*;
 
-    Hammurabi ham;
+public class MyHammurabiTest {
+
+    MyHammurabi ham;
 
     boolean about(double expected, double actual) {
         return actual > 0.90 * expected && actual < 1.10 * expected;
@@ -14,7 +13,7 @@ public class HammurabiTest {
 
     @Before
     public void setUp() throws Exception {
-        ham = new Hammurabi();
+        ham = new MyHammurabi();
     }
 
     @Test
@@ -119,6 +118,23 @@ public class HammurabiTest {
             assertTrue("You never have a land cost of " + j + " bushels per acre.", cost[j] > 0);
         }
     }
+
+    @Test
+    public final void testCheckHowManyAcresToBuy(){
+        int price = 20;
+        int bushels = 1000;
+        int acres = ham.checkHowManyAcresToBuy(price, bushels, 50);
+
+        assertEquals(50, acres);
+    }
+    @Test
+    public final void testCheckHowManyAcresToSell(){
+        int acresOwned = 1000;
+        int acresToSell = 20;
+        int acres = ham.checkHowManyAcresToSell(acresOwned, acresToSell);
+
+        assertEquals(20, acres);
+        }
 
 }
 
