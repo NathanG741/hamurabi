@@ -41,7 +41,7 @@ public class MyHammurabi {
             acres += acresToBuys;
             stores -= acresToBuys * landPrice;
 
-            int acresToSell = askHowManyAcresToSell(0);
+            int acresToSell = askHowManyAcresToSell(acres);
         }
 //        a.finished();
 

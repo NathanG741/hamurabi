@@ -10,6 +10,7 @@ import java.util.Scanner;
 // (how the hell would you ever be able to TEST this piece of code?)
 //
 public class Hammurabi {
+
 	static int totalDeaths = 0, percentDied = 0, year = 0, population = 95, stores = 2800, immigrants = 5, deaths,
 		harvest = 3000, yeild = 3, acres = harvest / yeild, eaten = harvest - stores, landPrice, fullPeople, temp;
 	static boolean plague = false;

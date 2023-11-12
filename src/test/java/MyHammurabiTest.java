@@ -20,7 +20,8 @@ public class MyHammurabiTest {
     public final void testPlagueDeaths1() {
         int number_of_plagues = 0;
         for (int i = 0; i < 10000; i++) {
-            int deaths = ham.plagueDeaths(100);
+            boolean isPlague = ham.isPlague();
+            int deaths = ham.plagueDeaths(100, isPlague);
             if (deaths > 0) {
                 number_of_plagues += 1;
             }
@@ -34,7 +35,8 @@ public class MyHammurabiTest {
     public final void testPlagueDeaths2() {
         int deaths = 0;
         for (int i = 0; i < 10000; i++) {
-            deaths = ham.plagueDeaths(100);
+            boolean isPlague = ham.isPlague();
+            deaths = ham.plagueDeaths(100, isPlague);
             if (deaths > 0) break;
         }
         assertEquals("In a plague, " + deaths + "% of your people die, not 50%.",
@@ -120,7 +122,7 @@ public class MyHammurabiTest {
     }
 
     @Test
-    public final void testCheckHowManyAcresToBuy(){
+    public final void testCheckHowManyAcresToBuy() throws Exception {
         int price = 20;
         int bushels = 1000;
         int acres = ham.checkHowManyAcresToBuy(price, bushels, 50);
@@ -135,6 +137,23 @@ public class MyHammurabiTest {
 
         assertEquals(20, acres);
         }
+@Test
+    public final void testHowMuchGrainToFeedPeople(){
+        int feed = 1800;
+        int bushels = 2800;
+        int grain = ham.checkHowMuchGrainToFeedPeople(bushels, feed);
 
+        assertEquals(1800, grain);
+}
+    @Test
+    public final void testCheckHowManyAcresToPlant(){
+        int acresOwned = 1000;
+        int population = 100;
+        int bushels = 2800;
+        int acresToPlant = 900;
+        int planted = ham.checkHowManyAcresToPlant(acresOwned, population, bushels, acresToPlant);
+
+        assertEquals(900, planted);
+    }
 }
 
