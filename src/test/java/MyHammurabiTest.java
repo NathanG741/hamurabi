@@ -69,7 +69,8 @@ public class MyHammurabiTest {
     public final void testHarvest() {
         int[] yield = new int[7];
         for (int i = 0; i < 1000; i++) {
-            int harvest = ham.harvest(1);
+            int yieldAmount = (int) (Math.random() * 6 + 1);
+            int harvest = ham.harvest(1, yieldAmount);
             assertTrue("Illegal harvest per acre: " + harvest, harvest > 0 && harvest <= 6);
             yield[harvest] += 1;
         }
